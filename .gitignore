@@ -1,3 +1,7 @@
+#additional cs338 ignores
+.DS_Store
+*.py 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
