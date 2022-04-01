@@ -1,0 +1,30 @@
+AUTHOR NAME: Kai Johnson
+
+QUESTIONS: 
+1. 172.23.96.84
+2. host <hostname>
+	eg, if I wanted a list of IP adresses associated with google.com, I could execute:
+	host google.com
+3. host <IP address>
+	similarly, if I want the host name for an IP address, I can use host again, eg (for blue.mathcs.carleton.edu):
+	host 137.22.5.8 
+4. scp <localfile> <destination>:<filepath at destination>
+	eg, if I wanted to copy a text file from my local machine to my account on the edmonstone research server, 
+	I would execute the following command: 
+	scp test.txt johnsonk4@edmonstone.mathcs.carleton.edu:/Accounts/johnsonk4
+5. nmap <host> -p<port #>
+	eg., if I want to check whether there's a process listening on port 80 for host google.com, I could execute:
+	nmap google.com -p80
+6. nmap <host> --open
+7. curl <name of webpage> --output <name of file you want to save it to>
+8. curl <name of webpage> --head
+9. curl <name of webpage> --head --verbose 
+	this option will also display the response headers, but supressing that/removing it 
+	seems to not be a built-in option, and instead requires some fancy cli work
+	that I'm not sure I would be permitted to use: https://www.baeldung.com/linux/curl-request-headers
+
+CITATIONS
+https://linuxhint.com/resolve_hostname_ip_address_bash_script/
+https://www.linux.com/topic/desktop/how-securely-transfer-files-between-servers-scp/
+https://www.tecmint.com/find-listening-ports-linux/
+
