@@ -1,0 +1,42 @@
+===== AUTHOR =====
+Kai Johnson
+
+===== DAYTIME =====
+1.  1    192.168.58.128  132.163.96.1    TCP    [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=3935413267 TSecr=0 WS=128
+    2    132.163.96.1    192.168.58.128  TCP    [SYN, ACK] Seq=0 Ack=1 Win=64240 Len=0 MSS=1460
+    3    192.168.58.128  132.163.96.1    TCP    [ACK] Seq=1 Ack=1 Win=64240 Len=0
+
+2.  60366; port number is required to specify not just the machine that the client is located at, but the particular software.
+
+3.  4    132.163.96.1    192.168.58.128    DAYTIME    DAYTIME Response
+
+4.  It includes the date and time, but also:
+    - the Modified Julian Date (MJD): 59673
+    - daylight savings: 50 (thus currently on daylight savings time)
+    - whether a leap second is imminent: 0 (no)
+    - an estimate of the health of the time server: 0 (fully healthy)
+    - time advance (in milliseconds): 521.7
+    - the time standard/location: UTC(NIST)
+
+5.  [SYN] represents a "synchronization packet" that communicates port and sequence number.
+
+6.  [ACK] represents an acknowledgement of a received packet, indicating which packet it received (by that packet's sequence number). This is required to permit TCP's recovery from error to happen.
+
+7.  [FIN] represents the "finish up" packet that indicates the sender (can be either the client or the server) is done talking.
+
+8.  The nc client; I can tell because the [FIN] (finish up) package was sent from source 192.168.58.128, which was the source address for the first [SYN] package, and the nc client initiated the interaction. To summarize the logic: the nc client was the source for the first [SYN] package - the source for the first [SYN] package was the source for the [FIN] package - the nc client initiated the closing of the TCP connection.
+
+===== HTTP =====
+1.  Many!
+2.  Yes! It seems like a GET request was sent (192.etc is the client IP address):
+    4    192.168.58.128    45.79.89.123    HTTP    GET /index.html HTTP/1.1
+3.  Also yes! It seems another GET request was sent for the image.
+    8    192.168.58.128    45.79.89.123    HTTP    GET /jeff_square_head.jpg HTTP/1.1
+
+===== QUESTIONS =====
+For some of the TCP packages I see [PSH] or [TCP Keep-Alive]; what do they do?
+
+===== CITATIONS =====
+https://tf.nist.gov/general/pdf/1046.pdf
+http://leapsecond.com/java/mjdcal.htm
+  ## used to check the MJD for April 04, 2022
