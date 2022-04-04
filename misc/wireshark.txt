@@ -27,11 +27,11 @@ Kai Johnson
 8.  The nc client; I can tell because the [FIN] (finish up) package was sent from source 192.168.58.128, which was the source address for the first [SYN] package, and the nc client initiated the interaction. To summarize the logic: the nc client was the source for the first [SYN] package - the source for the first [SYN] package was the source for the [FIN] package - the nc client initiated the closing of the TCP connection.
 
 ===== HTTP =====
-1.  Many!
+1.  2 TCP connections were opened. 
 2.  Yes! It seems like a GET request was sent (192.etc is the client IP address):
-    4    192.168.58.128    45.79.89.123    HTTP    GET /index.html HTTP/1.1
+     7    192.168.58.128    45.79.89.123    HTTP    GET /index.html HTTP/1.1
 3.  Also yes! It seems another GET request was sent for the image.
-    8    192.168.58.128    45.79.89.123    HTTP    GET /jeff_square_head.jpg HTTP/1.1
+    11    192.168.58.128    45.79.89.123    HTTP    GET /jeff_square_head.jpg HTTP/1.1
 
 ===== QUESTIONS =====
 For some of the TCP packages I see [PSH] or [TCP Keep-Alive]; what do they do?
