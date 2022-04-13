@@ -1,0 +1,104 @@
+====== AUTHOR ======
+Kai Johnson
+
+====== Diffie Hellman ======
+** Value of the shared key K plus method of computing it
+We have intercepted and know that:
+    g = 11
+    p = 59
+    A = 57
+    B = 44
+We also know the algorithmic formulae for each of these numbers:
+    A = g^x % p
+      = 11^x % 59
+      = 57
+    B = g^y % p
+      = 11^y % 59
+      = 44
+And the equation for the shared secret:
+    B^x % p = A^y % p
+    44^x % 59 = 57^y % 59
+
+Great! What now? Brute force! I can rather unsophisticatedly write a simple python script to find possible
+values of x & y:
+for i in range (0, 59):
+  if (11**i % 59 == 57):
+    print ("x:", i)
+  elif (11**i % 59 == 44):
+    print ("y:", i)
+
+This gives me values of x: 36 and y: 15; I can then use the equation for the shared secret (and double check it):
+44**36 % 59 = 36
+57**15 % 59 = 36
+
+Voila, the shared "secret" is 36!
+
+
+** Explanation of why this wouldn't work with big integers
+The brute force for-loop would get very, very computationally intense as the integers get bigger.
+Particularly, as the size of p increases, so does the number of "possible remainders," the number of
+iterations that have to be conducted.
+
+====== RSA ======
+** Message plus method of computing it, including encoding
+Given that this is an intro-level computer security class, I'm going to start with an guess that this is
+a substitution cipher of ascii-represented plaintext.
+We have Bob's public key: (e_Bob, n_Bob) = (13, 5561)
+
+Going off the assumption above, I'm guessing that each ascii # x undergoes:
+  x ^ e_Bob % n_Bob
+To then decrypt this message, we would want to compute for every integer y:
+  y ^ d_Bob % n_Bob
+
+Thus, we might want to find d_Bob (for readability, I'll be removing Bob's name from variable names--
+d_Bob = d, n_Bob = n--since they will all be applying to Bob).
+  n = 5561 = p * q, where p and q are both primes.
+  λ(n) = lowest common multiple of (p - 1) & (q - 1)
+  gcd(e, λ(n)) = 1
+  d * e % λ(n) = 1
+
+To determine d, we're first going to want some way to determine if numbers are prime. I generated a list
+of primes first just with a nested loop (for each integer check if it's divisible by any integer below
+it).
+
+Then, for this list of primes:
+- I check each pair p,q for whether their product = n, if not skip to the next pair
+- I retrieve the lcm of p-1 and q-1 (which I computed by looping through increasing multiples of p and
+checking whether it was also a multiple of q, using mod). If the lcm is less than e (13), I skip to the
+next pair p,q.
+- I check that the gcd of λ and e is 1; since e is prime (13), I simply check if λ is a multiple of e.
+If it is, I skip to the next pair p,q.
+- I then loop over increasing integers (values of d) until I find one that satisfies (e * d % λ) == 1
+My actual python implementation of this pseudocode can be found in this folder at: eve.py
+
+This gave me a value of d = 1249. Great! Now we can progress to decryption!
+For each integer y in the ciphertext, we're going to want to compute y ** d % n.
+This gives us another set of integers, but these look pretty familiar...because they're ascii representations
+of latin alphabetical symbols & punctuation (so the message was "encoded" with ascii)! Python decodes them
+into english text for us through chr().
+
+And voila, the message:
+Hey Bob. It's even worse than we thought! Your pal, Alice. https://www.schneier.com/blog/archives/2022/04/airtags-are-used-for-stalking-far-more-than-previously-reported.html
+
+
+** Explanation of why this wouldn't work with big integers
+It gets very computationally intense, and thus not feasible.
+For instance, even just at the start, we need to find primes p and q. Wikipedia tells me that there exist
+algorithms that test primality in polynomial time (see: https://en.wikipedia.org/wiki/Primality_test), but
+then you need to check primality for each integer below n, which if n is very large would probably take a
+while. Then when you have the primes, you have to check each pair p & q, and carry out arithmetic. For some
+pairs, if their product is equal to n, you have to find their lowest common multiple, which is another loop--
+if p and q are sufficiently large, it might take many iterations of a loop to find the lcm. Then, you have to
+check the gcd of the lcd and e, which for this specific implementation was easy since the 13 is prime;
+however, if e is very large and has many prime factors (prime, because if they aren't then that factor has a
+non-1 factor that is smaller, etc.) it might take a while to determine which are also factors of the lcd.
+Then, you need another loop to determine d, which if the lcd (# of possible remainders) is large could also
+take a while! I don't have a doctoral in mathematics, but generally the reason why this (cracking with brute
+force) wouldn't work with large integers is that, with polynomials, big numbers get...very big, and thus not
+feasibly executable with modern computers (quantum computing, though?).
+
+** Explanation of why the encoding is insecure independent of RSA
+Since it's a simple substitution cypher, it would probably be crackable just using letter frequency &
+positioning. Or, even, just start assigning integers to askii symbols and keep it spinning; when you achieve
+combinations that form english words (just a lookup function, maybe), you can check over that combination with
+a grammar-checker, or something.
