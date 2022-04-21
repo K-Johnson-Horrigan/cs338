@@ -1,0 +1,264 @@
+====== AUTHOR ======
+Kai Johnson, collaborated with Angelis Ellis
+
+====== PRIVATE KEY ======
+Copy past of the generated private key (which I will not be using for anything other than this HW):
+-----BEGIN RSA PRIVATE KEY-----
+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
+-----END RSA PRIVATE KEY-----
+
+Interpretation questions:
+1.  For your private key file (id_rsa_homework), list the items you expect to be contained in the file.
+    (Hint: the Appendix of RFC 8017 should help.)
+      I expected to find: (lifted pretty directly from
+      https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.2)
+      - the version number
+      - the RSA modulus n
+      - the RSA public exponent e
+      - the RSA private exponent d
+      - the prime factor p of n
+      - the prime factor q of n
+      - d % (p - 1)
+      - d % (q - 1)
+      - the CRT coefficient q^(-1) % p
+      - if version != 0, potentially for primes r_3, ..., r_u
+        - prime factor r_i of n
+        - d_i = d % (r_i - 1)
+        - the CRT coefficient t_i = (r_1 * r_2 * ... * r_(i-1))^(-1) % r_i
+
+
+2.  Use one or more of the following tools (findable by searching the internet for "web asn.1 decoder")
+    to decode your private key file. Explain briefly the steps you took to decode the private key file.
+      Steps I took to decode my private key file:
+      - clicked on the link reading "Lapo Luchini's ASN.1 decoder"
+      - copy-pasted the above numerical representation of my private key into the convenient text box
+      - left the "with hex dump" option selected (that is, did not turn it off)
+      - clicked "decode"
+
+3.  Analysis of each integer in decoded private key file
+    ELEMENT 0
+      A.  What is the meaning/name of the integer?
+            version
+      B.  What is the value of the integer?
+            0
+      C.  Which bytes from the decoded base64 data represent this integer?
+            The "offset" for this integer was 4.
+            The exact seqeunce is: 0x02 0x01 0x00
+            With DER encoding, the first hex number is the type tag for integers (0x02), the next is the length in octets of the following value (0x01), and
+            then finally the value (0x00). (source https://en.wikipedia.org/wiki/ASN.1#Example_encoded_in_DER)
+    ELEMENT 1
+      A.  modulus
+      B.  40441569796074993884737343938604910852397174870241953132207839685675036383402424
+          45340839078267763104833292853735873023695910900663507873022728290709439995434685
+          73993464088731836869643705591161856695843311924671752079429859202139056144984930
+          25813244246795937217779702249368908183799304634872470939207422025484906502021482
+          95133807490573462662902638365397056372120872104633431120171696887119901531143710
+          10970291906086429707985420847217650014817289410573583490475351425142529656560454
+          43809781518274787429893033908369247536205497374075400762473078699292559328388533
+          14934029718599093369429108989579537837733895964941314257664199047553154298030884
+          17583518078179512398015490732434003615521241738886480281403342715996790347174131
+          08559744407170845429994835957214519572252053074777080320313024995392448324163337
+          78419467539785078212047261027204397272872286290408478051724423811380468253295230
+          433893422132583098416549065280237211083574189
+      C.  Here, at offset 7 we have:
+          - a type tag for integers (0x02)
+          - a long form representation of length (source: https://letsencrypt.org/docs/a-warm-welcome-to-asn1-and-der/) (0x82 0x01 0x81)
+            for this, the eighth bit of the first byte is set to 1; the remaining bits in the byte indicate the length of the length field.
+            In binary, 0x82 is represented as 10000010; the eighth bit is 1, indicating that it's long form length, and bits 1-7 sum to two, indicating there
+            are 2 more bytes communicating length. Those are 0x0181, which convert to 385 in decimal. Thus, the length field indicates that the integer being
+            represented is 385 octets long.
+          - the integer itself, represented in B
+    ELEMENT 2
+      A.  publicExponent
+      B.  65537
+      C.  At offset 396, we have
+          - an integer type tag (0x02)
+          - the length in octets of the integer (0x03)
+          - the integer (0x010001) which converts to the decimal value in B.
+    ELEMENT 3
+      A.  privateExponent
+      B.  97455439185408605584884397031049232813816406415571534525071091468310397119653705
+          44771330937193155425886475432053747144853978798873732370820749789458502196911666
+          98060451096837191156489165265608618459412763053899473669901851836272962402573661
+          22445117474044926755938605310631119359559091520597667507347424515690850723473042
+          74691887284835542645409672048570381812549389375234718964992539929854067912988481
+          89000689697853576510705975470361528096191380695056014780212279884024929867675557
+          34365071359984756565461952075372795416278978084066165107859476224078906560364658
+          73620981698646159742873576928517438190639177162361118393181233055546578875618729
+          09539667026932673264467743460068069277989035512194032068533646126365796924592171
+          70693830654700812721830825353064779845659866253210205876190350252331957201809618
+          88593901856186312377303506074944645468000275845761734421699217498762619141824360
+          98397409388673031617706487967290335081091009
+      C.  At offset 401, we observe
+          - type tag integer (0x02)
+          - long form representation of length; the first byte in the length sequence is (0x82), which as discussed for element 1 indicates that the length is
+            in long form and that there will be two more octets describing how long the integer is. Then we get the actual length descriptor (0x0180),
+            indicating that the integer will be 384 octets long.
+          - then we get the 384 octets representing the integer in B.
+    ELEMENT 4
+      A.  prime1
+      B.  22139136417503855820681455625213347802059331517233972958529507736211759618846534
+          74813517475562616388335766548744353750601205388063838284429593777786141919741414
+          41612104517177310651039487027121006560942000270747459980337787309913148640847153
+          10575993962745142743891842617953065206674632163051470923244411889525480941841763
+          53923300307518846336877895858054774243769274828850523554516363624337048577898131
+          967714142209373041031184557400036974893005505852375804179570013
+      C.  At offset 789 we get:
+          - type: 0x02, integer
+          - length: 0x81 0xC1; the first octet indicates that it's long form length, and that there is one more octet describing length; 0xC1 indicates that
+            the integer is encoded in 193 bytes.
+          - value: the 193 bytes convert to the decimal indicated in part B.
+    ELEMENT 5
+      A.  prime2
+      B.  18267004201708921718594141876602749125518246472920198954319595116902175540677221
+          50895223482764352775648486195345948565394701479282765046244720387056010581866820
+          14867800199163215461266369061923530799186942604139015893325875625942493423146643
+          82296631799606667149852720508795269216224485430560145611300994856899562004268215
+          90124853865026027305451034444037133865882368661257392808862260422649110795963304
+          335172653083131059498278356336075252053295341742031818465489553
+      C.  At offset 985 we get:
+          - type: 0x02, integer
+          - length: 0x81 0xC1; the first octet indicates that it's long form length, and that there is one more octet describing length; 0xC1 indicates that
+            the integer is encoded in 193 bytes. (type and length are identical to those for element 4, which makes sense as they're the two prime factors)
+          - value: the 193 bytes convert to the decimal indicated in part B.
+    ELEMENT 6
+      A.  exponent1
+      B.  14655603618368055921455731431775270168676351351811628283760992471852708840869097
+          81517457957486741068275308542513771504891629072978036225821955482482780430078604
+          80383593121034231736037613946085688216425953884769028240337131157258831509445242
+          99770037110025409658681412028888654972402951642001083579261113041719539575825305
+          84839227620144309771260671588657526676407010073315090924045011512248630781139395
+          414610225454498069977217615060854236824361061170018033912545057
+      C.  At offset 1181 we get:
+          - type: 0x02, integer
+          - length: 0x81 0xC1; the first octet indicates that it's long form length, and that there is one more octet describing length; 0xC1 indicates that
+            the integer is encoded in 193 bytes.
+          - value: the 193 bytes convert to the decimal indicated in part B
+    ELEMENT 7
+      A.  exponent2
+      B.  13813765174431148212056176990164826688140810461234494410425853090524006588582985
+          15317565280769661772146100307327848557318177599115825193278428099890075597560456
+          02588586262272135713571894513159439498416236255262365193298905900814959092591172
+          43490258510284364922817657634861124896716137417619982856952214857377394341082636
+          98469380007487219635597498619809883796834310249964392444073021751781282802812783
+          05157631089003120845834681691282618203093393253788084476173249
+      C.  At offset 1377 we get:
+          - type: 0x02, integer
+          - length: 0x81 0xC0; the first octet indicates that it's long form length, and that there is one more octet describing length; 0xC0 indicates that
+            the integer is encoded in 192 bytes.
+          - value: the 192 bytes convert to the decimal indicated in part B
+    ELEMENT 8
+      A.  coefficient
+      B.  19352744843926323848411489131228018822279760637829015758734592010557706492349728
+          45535394226293872193961904806559490698502566920054639180568688498339333461862135
+          01101790469914156514263380403809691439493031600787628926021867577463439410422366
+          65785806416103618965952635885321720326493318728813886437245664252496146931635304
+          78309442628091000623231486100944150093086535493099379535304161209593948687600699
+          800791489635669457973144308998125593654862763884395012021278622
+      C.  At offset 1572 we get:
+          - type: 0x02, integer
+          - length: 0x81 0xC1; the first octet indicates that it's long form length, and that there is one more octet describing length; 0xC1 indicates that
+            the integer is encoded in 193 bytes.
+          - value: the 193 bytes convert to the decimal indicated in part B
+
+
+
+====== PUBLIC KEY ======
+Copy past of the generated public key:
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCbidzUExxoJUXFMWv+ntLS3ruUuRxA8ZacxKAWDEsyamg/h9hQhsT4opZDfKg6ioPU3pMPvGgvbQMipYmvJqoTvjNlS0uMcJ60/em3b2BxqUPjpZeceRUnyHDCAu6FT+yzFe03mehdFhxYzGdhGvljNElN6uFk0lP3RHICTNNaF2tQlpbVHtt8Uo1ByDuoWU/MRBLaETj0lU1/1GrVzYFLJ271LU7BXuPzpxU2jCFaX28zzs/3Ju4Kfp+2xia2Gt8FAvSIQDApJfChD0OUBIVR1DlHY8+1MWwBWGmLu0Bqk0cL27ImKdzAtgjIcu1+nnQSn4k628LTj/SlR/IhxsgnKEo+P4iCXVyP7i6GO8Lc4VM8eVUjJbDRn+z9sau2poL+7S30JulZWRE3Dg+cc6x7vTuhStZKB+yPGYm5y0ujQ5kRfSCv6+yQGDJ7Otlk986fZYuGLVhVitVLSOHOY2nu6SFeRAvxQcu4TLslhZvs7VBdHRAHxO0lH16LGMCjlzM= root@TheSurface
+
+1.  What you expect to find in id_rsa_homework.pub and why.
+      I expected to find:
+      - the RSA modulus n
+      - the RSA public exponent e
+      I expected to find them there because that's what the RSA Public Key Syntax claims should be there, and because I know from class that that's all that
+      is needed for other's to communicate encryptedly with me.
+      (https://datatracker.ietf.org/doc/html/rfc8017#appendix-A.1.1)
+
+2.  How I decoded the file:
+      I used the following command to convert the file to PEM format: ssh-keygen -e -f id_rsa_homework.pub -m PEM
+      This yileded the following:
+      -----BEGIN RSA PUBLIC KEY-----
+      MIIBigKCAYEAsjSgrKC35eRGiEYV4cDBTc7OCzFnWuEZjwMTcYA4AIFlYpCsiB8B
+      4p0EM1PIECsM7igxXS8gjJyEZSk75dy4u/T3GpsDxDG8uFNk/Jmgy5RGSoeJcrf/
+      u7U9d7PTwd/wY7xn/tD8cvNawHKwY81nrplQ1uwb7UOJT0C+GCE7Pmz1UcpPGsZB
+      xWyF7cODNd5qAXOxlkOfRJn8Ni1xTSLm7s6WypGAcXV9rUB1/pkahcG8XvT2Op2z
+      rwrn5FjwT6+nCpbxyhRXex/bP5RG+sgTMdvvoLGIW7sTMHXKxV0Vk1UoiBA0qnXL
+      Hio3bRn1tU1miEDIG6HPdVFR32d64ht3BEYHZoKfx5OBLUB3tRPLT9YgoyOdCnGc
+      yMbPuls1p5SQuG7HccO1Yi3hW0fGFyom4J3KI00RMWICLzZ2ObKiRw3RNbZVGkOb
+      3ZswoOrHU5GW9AV8Q8wbSXGB5r7egXpA2FFpisFAqaM8PPfV7Hy+SASlR6gAoZje
+      uSBK1yxY/4utAgMBAAE=
+      -----END RSA PUBLIC KEY-----
+      Which I could then plug into the handy "Lapo Luchini's ASN.1 decoder" to decode it to DER-encoded values and types.
+
+3.  Analysis of each integer in decoded public key file
+    ELEMENT 0
+      A.  modulus
+      B.  40441569796074993884737343938604910852397174870241953132207839685675036383402424
+          45340839078267763104833292853735873023695910900663507873022728290709439995434685
+          73993464088731836869643705591161856695843311924671752079429859202139056144984930
+          25813244246795937217779702249368908183799304634872470939207422025484906502021482
+          95133807490573462662902638365397056372120872104633431120171696887119901531143710
+          10970291906086429707985420847217650014817289410573583490475351425142529656560454
+          43809781518274787429893033908369247536205497374075400762473078699292559328388533
+          14934029718599093369429108989579537837733895964941314257664199047553154298030884
+          17583518078179512398015490732434003615521241738886480281403342715996790347174131
+          08559744407170845429994835957214519572252053074777080320313024995392448324163337
+          78419467539785078212047261027204397272872286290408478051724423811380468253295230
+          433893422132583098416549065280237211083574189
+      C.  At offset 4 we get:
+          - type: 0x02, integer
+          - length: 0x81 0x0182; the first octet indicates that it's long form length, and that there are two more octet describing length of the integer
+          value; 0x0182 indicates that the integer value has length 385 octets.
+          - value: the 385 bytes convert to the decimal shown in part B
+    ELEMENT 1
+      A.  the public exponent
+      B.  65537
+      C.  At offset 393 we get:
+          - type: 0x02, integer
+          - length: 0x03; the value is represented with three octets.
+          - value: 0x010001 which decodes to 65537 in decimal.
+
+
+====== SANITY CHECK ======
+Do the numbers make sense?
+- are the modulus n and public exponent e are consistent across the decoding for both the public and private keys? yes, which is reassuring.
+- do prime1 and prime2 have a product of the modulus, or in python form: (p*q)==n. This returned True, so yes.
+- does exponent1 equal d % (p - 1)? yes
+- does exponent2 equal d % (q - 1)? yes
