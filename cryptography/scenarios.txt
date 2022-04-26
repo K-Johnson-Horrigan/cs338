@@ -1,0 +1,109 @@
+==AUTHOR==
+Kai Johnson, collab with Angela Ellis
+
+==QUESTIONS==
+1.  Steps:
+    Alice and Bob use Diffie-Hellman to agree on a shared secret key K.
+    Alice encrypts message with AES and sends it to Bob; AES(K, M)
+    Bob decrypts the message; AES_D(K, C) which will equal M!
+
+    Why does it achieve our goals?
+    Eve (who listens but doesn't interfere) can watch integers being exchanged during D-H but cannot determine K from those
+    integers (because she doesn't have Alice's secret a nor Bob's secret b). Thus, she can see that Alice sends something to Bob,
+    but since she doesn't have K she can't decrypt it and read it.
+
+2.  steps:
+      Alice & Bob agree to use SHA-256 as their hash function.
+      Alice hashes message M using SHA-256 to produce digest, D = H(M)
+      Alice then encrypts message M using Bob's public key to produce cyphertext C, C = E(P_B, M).
+      Alice then sends Bob a packet containing the concatenation of the digest and the cyphertext, C||D
+      Bob receives C||D
+      Bob decrypts the cyphertext C into the plaintext M' using his secret key, M' = (S_B, C)
+      Bob hashes this plaintext using SHA-256 to produce digest D'
+      Bob compares this to the digest he received from Alice; if they're equivalent then he can be sort of confident that
+      he received Alice's message unaltered:
+        if D' == D, Bob can assume M' == M
+
+    Explanation:
+      Let's say Mal (ze/zir) intercepts the concatenated package C||D, with the intent of modifying the message that Alice
+      is sending to Bob. Because cryptographic hashes tend to be pre-image resistant, Mal can't determine M from the digest
+      D, and since ze doesn't (or, shouldn't, if Bob is being safe) have Bob's private key Mal can't derive M from C.
+      Furthermore, since cryptographic hashes tend to be input sensitive, a small change to input would yield large changes
+      to the digest; so if Mal just starts messing with C Bob would be able to tell. However, Mal could just generate a new
+      message M_m, encrypt it using Bob's public key (C_m = E(P_B, M_m)), hash the message using SHA-256 (D_m = H(M_m)),
+      and send that all on to Bob as C_m||D_m...but Mal couldn't modify Alice's message.
+
+3.  steps:
+      - Alice initiates contact
+      - Bob sends to Alice a random number R encrypted with her public key, C = E(P_A, R)
+      - She receives it and decrypts it using her private key, R' = E(S_A, C)
+      - She then returns the number that she received to Bob
+      - Bob then checks that the number she decrypted was correct; if R' == R. If so, he knows that somewhere down the line
+      he talked to someone with Alice's private key.
+      - Alice and Bob use Diffie-Hellman to agree on a shared secret key K.
+      - Alice sends Bob the cyphertext C = AES(M, K)
+      - Bob decrypts to get M' = AES_D(C, K)
+
+    explanation:
+      This is sufficient to prove to Bob that Alice was who sent the message and to prevent Eve from reading it, ASSUMING
+      THAT PITM IS IMPOSSIBLE. Bob checks that the person he's talking to has Alice's private key by asking that person to
+      decrypt a random number that he sent and send it back; he verifies that they read the message correctly, and if they did
+      they must have the private key that is the pair to the public key he's using to encrypt, which we're assuming is Alice's.
+      Thus, he knows that somewhere he's talking to Alice. Alice and Bob can then use Diffie-Hellman to agree on a shared secret
+      key K and use AES encryption to send messages to each other. Eve can't read those messages because she doesn't have the
+      secret numbers that Alice and Bob used to generate the key. Ergo, Alice can send Bob a long message, he can be sure it was
+      her, and Eve can't read it. However, if Mal were in the middle...this wouldn't be secure. But for this scenario we're
+      assuming that's impossible.
+
+4.  - Bob's been talking to Mal this whole time; the secret key that the signature was constructed with and the public key that he
+      checked the contract signature with both belong to Mal (ie. not to Alice). The P_A that Bob brought to court is actually not
+      Alice's public key! It's Mal's. Depending on how much money was riding on this case, I might be a bit skeptical; it requires
+      Bob to have not requested proof of Alice/Mal's identity, which I would doubt if the contract was actually important.
+    - Alice set her auto-screen lock to "never" and went out for lunch someday; Mal snuck in and copied her private key onto zir's
+      flashdrive (it's probably more complicated than that). At that point, Mal pretended to be Alice, and used Alice's keypair to
+      forge a contract with Bob. So, Bob shows up to court and does have Alice's actual public key, and the signature was
+      constructed with Alice's actual private key--she just wasn't the one behind the keyboard. My belief of this scenario depends
+      a bit more on who Alice is as a person--if she has a doctorate in cybersecurity I might be a bit doubtful; if she's running
+      Windows 7 it might be more believable. (who knows, Mal might be Bob's business associate, and they forge contracts to
+      collect settlement money all the time...)
+    - Mal changed the contract (C -> C'), but didn't touch the signature (Sig -> Sig)--Bob just forgot to check that the signature
+      is equivalent to the contract (so, when I ask him to do the comparison in court, it's going to show up H(C') != E(P_A,
+      Sig);  Sig = E(S_A, H(C)), which incorporates a hash of the original contract, but Mal didn't change the signature). If Bob
+      tried to get me to sue Alice over this I would be disappointed in his lawyer for taking the case. Absolutely not believable
+      that Bob wouldn't have checked, or more accurately that whatever software / protocol(s) he was using didn't have checking
+      built in.
+
+5.  Sig_CA = E(S_CA, H("bob.com" || P_B)). Essentially, hashing the "data" chunk and then encrypting it with the CA's private key.
+    The "data" chunk would normally also include some other stuff (like verification date) but it seems for the purpose of this
+    example it's been simplified.
+
+6.  No, it is not enough! One was to convince Alice that Bob is Actually Bob, For Real would be to follow the following protocol:
+    - Bob sends his certificate Cert_B.
+    - Alice and Bob use Diffie-Hellman to agree on a shared secret key K.
+    - Alice sends Bob a random number R.
+    - Bob returns the cyphertext C = E(S_B, H(K||R)); essentially, the encrypted version of the hash or the concatenation of the
+    key K they agreed on and the random number R.
+    - Alice decrypts C using Bob's public key to obtain digest D'; she also hashes her copy of the random number R and key K to
+    produce digest D = H(K||R). She compares the digests, if they're the same she trusts that Bob is Bob (if D == D').
+    - Alice and Bob proceed to communicate using AES.
+    Assuming that the secret keys S_B and K (or the numbers used to generate K) are secure, this should convince Alice that Bob
+    has the S_B that goes with the P_B that goes with Cert_B. This is because the key K is part of the encrypted has that Bob
+    returns during Alice's check; if Mal wanted to interfere in Alice & Bob's conversation, ze would naturally set up a key K_1
+    with Alice and K_2 with Bob at the start of the exchange & would pose as Bob; because Bob encrypts the key K that he's using,
+    though, if he encrypts K_2 (the key with Mal) Alice will see that it's different from her key with "Bob" (K_1), and won't
+    trust the communication. If Mal doesn't set up separate keys, though, ze can't decrypt the messages being passed around, and
+    can't write zir own (without it being obvious it's not Alice/Bob).
+
+7.  - Mal could get access to Bob's secret key. Let's say that Mal's inserted zirself in the D-H key exchange, and has set up K_1
+      with Alice. With Bob's secret key, when Alice issues the challenge with random number R, Mal can return E(S_B, H(K_1||R)),
+      which Alice would decrypt with Bob's public key and then check (by, herself, hashing K_1||R and comparing her digest and
+      the decrypted digest from "Bob"/Mal). Alice thinks she's talking to Bob and proceeds to symmetrically encrypt her messages
+      with  K_1, which Mal can decrypt and respond to, also encrytpedly.
+    - Steal Bob's identity and obtain Cert_B with keypair (P_M, S_M). If the CA requests postage of personal documents I can
+      break into Bob's house, if they require a phonecall I can hire a voice actor, if they require some digital proof (login
+      credentials or a change to a webpage) then depending upon how well Bob secures that aspect I might be able to gain access
+      to it, if they require an in-person visit I might struggle.
+    - we invent quantum computing a crack Bob's secret key by force
+    - we get access to CA's private key
+    - we get access to a or b that Alice/Bob used to determine the shared secret K
+    - we get access to Bob's computer (and can log in) and can thus be Bob (the machine) without being Bob (the person)
