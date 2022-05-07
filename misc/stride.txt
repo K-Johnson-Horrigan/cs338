@@ -1,0 +1,45 @@
+===== AUTHOR =====
+Kai Johnson, collab with Angela Ellis
+
+===== ANALYSIS =====
+STRIDE threat analysis
+  + stealing someone else's tapirsunlimited account (to ruin their good name, steal their super-secrete tapir pics, etc). Can be done if login
+  information is insecure; either on the user end (their username & password are written on a sticky not stuck to their monitor) or on the database
+  server end (if attackers gain access to database server(s) and passwords are somehow insufficiently secured)
+    - STRIDE categories: tampering (change their fanfiction and make it super bad)
+                         elevation of privilege (can now do things they weren't allowed to)
+                         information disclosure (can read private DMs about tapir roleplay)
+                         repudiation (authenticity of the user behind the account is in question--if this account is then used to do bad things--eg
+                         traffic tapirs--who is liable?)
+    - mitigation: require a password of x length and y complexity
+                  even better, require multi-factor authentication
+                  notifying email on file about uncharacteristic behavior (eg, logging on from a different device/continent)
+                  secure passwords on stored in the database server with cryptographic hashing (and "salts")
+
+  + DOS attack (overwhelm the server with queries so that no-one else can access the site)
+      - cat: DOS (surprise!)
+      - mit: limit the amount of requests that can come from a certain location/IP address (seems like can be circumvented easily with VPN though?)
+
+ + Break (physically, with a bat) the hardware/servers that are hosting the website
+     - cat: DOS (users are no longer able to access the website)
+            tampering (if the database server is destroyed, the information contained therein may also be deleted)
+     - mit: Security guards (with livable wage so that they can't be bribed)
+            back up data on multiple, geographically separate servers
+
+ + Listen in on user connection to tapirsunlimited & modify packets sent (given by Jeff)
+     - cat: information disclosure (read potentially un-published tapir posts)
+            tampering (could modify those posts)
+            elevation of privilege (gain ability to modify/observe other user's confidential data)
+            spoofing (pretend to be authentic user to the web client)
+     - mit: communicate using HTTPS
+
+  + accessing database to modify it (eg through sql injection in credential or other data-submitting forms)
+      - cat: tampering (changing the database?)
+             information disclosure (potentially retrieve data? SELECT * FROM users ?)
+             elevation of privilege (can modify the database and other user's data, which is not a permitted function)
+             repudiation (unless every single query is logged, which would be costly, could override permissions & modify the database without
+             necessarily those changes being noticed/traceable)
+      - mit: do the method thing we learned about in Software Development (limiting characters, etc) to ensure that user-generated-text is not
+      treated as actual query
+
+(data flow diagram observable in this folder as stride_data_flow.pdf)
