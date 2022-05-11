@@ -1,0 +1,103 @@
+==== AUTHOR ====
+Kai Johnson, collab with Angela Ellis
+
+==== Part 1 ====
+Total time: 0.454s
+Number of hashes computed: 267751
+Passwords cracked: 2805
+Time per hash computed: 0.454 / 267751 = 1.6956052451718202e-06
+Time per password cracked: 0.454 / 2805 = 0.00016185383244206775
+Passwords cracked per number of hashes computed: 2805 / 267751 =
+                                                 0.010476151349574792
+
+==== Part 2 ====
+Total time: 613m45.953s - 36825.953 seconds
+Number of hashes computed: 12305968983
+Passwords cracked: 452
+Time per hash computed: 36825.953 / 12305968983 = 2.992527695370675e-06
+Time per password cracked: 36825.953 / 452 = 81.47334734513275
+Passwords cracked per number of hashes computed: 452 / 12305968983 =
+                                                 3.673014295943801e-08
+
+
+==== Part 3 ====
+Total time: 12m9.654s - 729.654 seconds
+Number of hashes computed: 373448547
+Passwords cracked: 2805
+Time per hash computed: 729.654 / 373448547 = 1.953827390309809e-06
+Time per password cracked: 729.654 / 2805 = 0.2601262032085562
+Passwords cracked per number of hashes computed: 2805 / 373448547 =
+                                                 7.511074879078322e-06
+
+==== Analysis ====
+- Did your time per hash computed change between phases? By what factor? Why?
+      Not really.
+      Phase 1, time per hash computed: 1.6956052451718202e-06
+      Phase 2, time per hash computed: 2.992527695370675e-06
+      Phase 3, time per hash computed: 1.953827390309809e-06
+      Phase 2 was 1.765 (to 3 d.p.) times less "efficient" (computed more hashes
+      per second) than phase 1, and 1.53 times less efficient than phase 3.
+      Phase 1 and phase 3 were pretty comparable; phase 1 is 0.868 times more
+      efficient than phase 3.
+      So, we don't really see a significant change in the time per hash between
+      phases. This can be explained by the fact that we're consistently hashing
+      16 bytes (plaintext potential password) to 32 bytes (hash string) per
+      Jeff's assumptions--we aren't changing anything about the actual hash
+      function between the phases, we're
+- Did your time per password crack change between phases? By what factor? Why?
+      Yes!
+      Phase 1, time per password crack: 0.00016185383244206775
+      Phase 2, time per password crack: 81.47334734513275
+      Phase 3, time per password crack: 0.2601262032085562
+      Phase 1 was 503376.078 times more efficient (with time, per password
+      cracked) than phase 2, and 1607.167 times efficient than phase 3. Phase 3
+      was 313.207 times efficient than phase 2. This can principally explained
+      by the number of hashes per password cracked:
+      Phase 1, hashes per password crack: 95.45490196078431
+      Phase 2, hashes per password crack: 27225595.095132742
+      Phase 3, hashes per password crack: 133136.73689839573
+      Phase 1 was 285219.455 times more efficient (with hashes, per password
+      cracked) than phase 2, and 1394.761 times efficient than phase 3. Phase 3
+      was 204.493 times efficient than phase 2. So, the exact ratios are a
+      little of, but in terms of orders of magnitude we see that #hashes per
+      password cracked correspond pretty directly to #seconds per password
+      cracked. Given that our hash rate (in time) was pretty consisted across
+      all three phases, this makes sense! Hashing is the principle computation
+      that this brute-force approach engages in. Thus, to make a password hash
+      more secure, we want to increase the number of hashes it takes to derive
+      that password if we just loop over every possibility and try it. Ergo,
+      have a long password that consists of random characters & salt it!
+- Suppose you wanted to precompute all the possible password hashes for each
+  so you could just look up the password in a table indexed by the hash. How
+  much memory would be required for each phase?
+      The total memory to store one password in a hash table would be, depending
+      upon Jeff's assumptions:
+          32 bytes (to store the hash string)
+          16 bytes (to store the password)
+          32 bytes (additional overhead)
+          = 80 bytes per password
+      Phase 1:
+          Number of possible passwords: number of words, 267751
+          ergo, memory: 80 * 267751 = 21420080 bytes
+      Phase 2:
+          Number of possible passwords: number of two word combos; number of
+          words squared: 267751**2 = 71690598001
+          memory: 80 * 71690598001 = 5735247840080 bytes (yikes!)
+      Phase 3:
+          Number of possible passwords: number of words, but each could be
+          hashed with any 4-byte (32-bit) salt; the "largest" possible salt
+          would be 'ffffffff', and the "smallest" would be '00000000'. Thus,
+          per word there are 4294967295 possible salts it could be hashed with.
+          Ergo, the total number of hashes you'd want to compute would be #
+          words * # salts: 267751 * 4294967295 = 1149981788203545
+          memory: not quite 80 per password; we also want to store the salt,
+          which in this case is a 32-bit/4-byte integer, & we concatenate that
+          to the 16-byte password. Thus, total memory: 84 * 1149981788203545 =
+          96598470209097780 bytes (YIKES!!!)
+- Give 3-4 reasons we should store password hashes and not the passwords
+  themselves. Think in terms of threats, who the attackers might be, etc.
+      mean people who can't determine a user's plaintext password bc it's hashed
+        1. attackers who get access to the database
+        2. employees who already have access to the database
+        3. eve, listening in on the connection between user & server (if it's
+        being hashed by the user before they send it)
