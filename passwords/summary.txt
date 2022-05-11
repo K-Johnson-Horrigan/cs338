@@ -43,7 +43,8 @@ Passwords cracked per number of hashes computed: 2805 / 373448547 =
       phases. This can be explained by the fact that we're consistently hashing
       16 bytes (plaintext potential password) to 32 bytes (hash string) per
       Jeff's assumptions--we aren't changing anything about the actual hash
-      function between the phases, we're
+      function between the phases, we're just changing the number of times it's
+      called.
 - Did your time per password crack change between phases? By what factor? Why?
       Yes!
       Phase 1, time per password crack: 0.00016185383244206775
@@ -96,8 +97,10 @@ Passwords cracked per number of hashes computed: 2805 / 373448547 =
           96598470209097780 bytes (YIKES!!!)
 - Give 3-4 reasons we should store password hashes and not the passwords
   themselves. Think in terms of threats, who the attackers might be, etc.
-      mean people who can't determine a user's plaintext password bc it's hashed
-        1. attackers who get access to the database
-        2. employees who already have access to the database
-        3. eve, listening in on the connection between user & server (if it's
-        being hashed by the user before they send it)
+      1. It protects the plaintext passwords against attackers who get access
+      to the database
+      2. It protects the plaintext passwords against employees who already have
+      access to the database
+      3. It protects the plaintext passwords against Eve, listening in on the
+      connection between user & server (if it's being hashed by the user before
+      they send it)
