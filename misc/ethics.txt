@@ -1,0 +1,127 @@
+==== AUTHORS ====
+Kai Johnson & Angela Ellis
+
+SCENARIO 2
+1.  Identify the main ethical question or questions faced by the main character ("you") in the
+    scenario. This will certainly include "what should you do?", but there may be other interesting
+    questions to consider.
+    - How do we weigh up user privacy against financial benefit?
+    - if we can actually anonymize the data & make enough extra money, we might be able to invest in
+      a bigger security team, ergo making the app (and the users) more secure (by catching more
+      bugs, etc) -- is it worth it?
+    - to what degree does a disclosure statement/terms of service contract absolve us (the devs) of
+      ethical responsible re: the users' data? (if we tell them that we're going to sell their data,
+      is it morally wrong of us to do so? they didn't have to use our product, after all, and we
+      informed them that "some data may be exchanged with third parties" on page 29,283,102,931...)
+
+2.  For each stakeholder (or category of stakeholders) in the scenario, identify the stakeholder's
+    relevant rights.
+    - the users (part 1) - those who want to find a nice brewery
+        + rights: privacy (their data is anonymized/not shared) & disclosure (who has their data?)
+    - the users (part 2) - those who own breweries and want beer snobs to come visit, and list their
+      venue on the app
+        + rights: accurate/fair representation of their brewery
+    - the stakeholders/investors - presumably, the startup was funded with a loan/loans of some
+      sort, from one or multiple people who want returns.
+    - the employees of the startup, who want:
+        + to feed their families (make money)
+        + to sleep at night (feel that their job is meaningful, or at least does not violate their
+          personal ethical codes)
+        + to be liked (work somewhere that has a good reputation; eg is not known for selling their
+          user's intimate details)
+    - other people that they have contracts with (the building that the startup is renting, the
+      nearby taco place, etc) that benefit financially from the startup's success
+    - competing apps (breweryz, iBeer, etc) who would benefit from Beerz going out of business
+      (either because they aren't sufficiently cutthroat to survive in a capitalist economy or bc
+      they're too cutthroat & loose client trust)
+
+3.  List any information missing from the scenario that you would like to have to help you make
+    better choices.
+    - is the connection encrypted (HTTP vs HTTPS)
+    - where we / our users are (and, ergo, what laws are we operating under)
+    - realistically how anonymous can we make our data -- do we have their home address, their local
+      church, etc, or do we just have a few brief pins from when they open up the app in the
+      foreground?
+    - how much extra money are we talking about?
+    - what worker protection rights there are -- can the CEO fire me if I speak up? Is it likely
+      that the CEO will fire me if I speak up?
+
+4.  Describe your possible actions, and discuss the likely consequences of those actions.
+    - sell the data & hide the disclosure behind 50 layers of legalese in an updated terms of
+      service. You told the users, technically! Take your $50,000 bonus and take your husband & kids
+      to India for Christmas. Consequences:
+        + money cha-ching! Buy your kids' entrance into USC, flex on you hs classmates, etc.
+        + increased company resources, and thus potential for increased functionalities. More
+          marketing, reach out to more breweries, develop more sophisticated & personalized
+          recommendation algorithms, start the annual Beerz conference...
+        + some vaguely tech-savvy user becomes aware that Beerz is doing way more with their data
+          (i.e., distributing it way more widely) than was originally advertised. Incidentally, this
+          user is a writer for the New Yorker. The next Reporter at Large article: "How a brewery
+          startup 'hopped' on over to selling data." The company plummets on the stock market, and
+          since like any start-up employee you were paid in shares, you're now bankrupt. Your kids
+          will unfortunately now have to go to St. Olaf :(.
+        + it turns out that the third party buying the "anonymized" data is the NSA; they're putting
+          together behavior profiles for certain demographics, and it turns out that your data set
+          is perfect for that. Regardless, you've just helped the government spy on its citizens.
+          Good thing it's the US, which will most certainly not do anything nefarious!
+        + go to therapy about how horrible you feel for violating user privacy.
+    - sell the data & send all your users an email about it, who it is that you're selling the data
+      to, and what steps you're taking to ensure their anonymity.
+        + company collapses amidst user flight
+        + get a couple of impressed comp-sec bloggers to post about you. They wished that more
+          companies were so upfront! They won't be downloading the app, though.
+        + make more money, improve services, and gain users regardless.
+    - speak up in favor of not selling the data, and instead just scrubbing a little bit later (in
+      order to support the new service)
+        + idea is adopted:
+            * get outcompeted by other startups that, because they sold user data, made more money &
+              expanded their services more rapidly / marketed more aggressively.
+            * have peace-of-mind: you haven't violated your personal ethical code.
+            * maintain user privacy!
+        + idea is not adopted, the CEO wants to follow one of the two data-selling paths outlined
+          above.
+            * the boss is not pleased you spoke up. You get fired!
+                = then, of course, you sue the CEO... so starts the landmark "Beerz" lawsuit that
+                  revolutionizes tech employee protections, particularly regarding whistleblowing
+                  on potentially unethical but not necessarily illegal acts.
+            * the boss is eh that you spoke up. You get a promotion to "user advocate," as long as
+              you don't actually advocate for users.
+            * the CTO is pleased that you spoke up, and takes you with her to a different, higher-
+              paying & more ethical workplace.
+
+5.  Discuss whether the ACM Code of Ethics and Professional Conduct offers any relevant guidance.
+    - 1.3 Be honest and trustworthy:
+        + "A computing professional should be transparent and provide full disclosure of all
+          pertinent system capabilities, limitations, and potential problems to the appropriate
+          parties."
+        + If Beerz decides to sell the users' data, they have a responsibility of clearly
+          articulating to their users where their data is going, how it is being used, and the
+          risks associated with it. Beerz should not hide this information or provide an
+          intentionally obscure explanation.
+    - 1.6 Respect privacy
+        + "Computing professionals should establish transparent policies and procedures that allow
+          individuals to understand what data is being collected and how it is being used, to give
+          informed consent for automatic data collection, and to review, obtain, correct
+          inaccuracies in, and delete their personal data.... Personal information gathered for a
+          specific purpose should not be used for other purposes without the person's consent."
+        + If Beerz decides to sell the users' data, they must do due diligence to know exactly how
+          the company they're selling the data will use the data and be able to share this
+          information with their users. Additionally, if Beerz changes the way they use their
+          users' data, they must update the users and, if necessary, get consent.
+    - 2.6 Perform work only in areas of competence.
+        + Maybe CEO is so eager for the increased revenue because they don't understand the risks
+          associated with "anonymized data." They are unqualified to be making this decision.
+          Someone who is accurately informed about the likelihood of the data being re-identified
+          should be making this decision.
+
+6.  Describe and justify your recommended action, as well as your answers to any other questions
+    you presented in part A.
+    - Our recommended action is that we (the hive-mind of the Beerz developer) should, in the next
+      meeting, clearly present to the CEO the issues with "anonymized" location data, and emphasize
+      how in the current social landscape if we would loose user trust if they realized we were
+      selling their data, even if it were theoretically anonymized. Additionally, we should
+      emphasize to them the ills of data brokerage and surveillance capitalisms:
+      https://www.nytimes.com/2020/01/20/opinion/facial-recognition-ban-privacy.html
+      Essentially, try to convince the CEO that selling "anonymized" location data would do more
+      ill than good, and scrub the API logs. If that doesn't work, and the CEO progresses with
+      their plan, quit and find a different start-up to work for.
